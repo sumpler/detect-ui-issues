@@ -71,7 +71,7 @@ class GradCam:
     def __init__(self, model, target_layer_names):
         self.model = model
         self.model.eval()
-        self.model = model.cpu()
+        self.model = model.cuda()
 
         self.extractor = ModelOutputs(self.model, target_layer_names)
 
@@ -120,7 +120,7 @@ if __name__ == '__main__':
         image_name = image_dir + file
 
         model = Net()
-        model.cpu()
+        model.cuda()
         model = nn.DataParallel(model)
         model.load_state_dict(torch.load(model_dir))
 

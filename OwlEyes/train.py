@@ -21,7 +21,7 @@ def train():
     print('-------------train-----------------')
     print('Length of train set is {0}'.format(len(datafile)))
     model = Net()
-    model = model.cpu()
+    model = model.cuda()
     model = nn.DataParallel(model)
     model.train()
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)

@@ -19,7 +19,7 @@ def val(count):
         model_file = model_path + '%d'%count +'model.pth'
         #model_file = model_path + 'model.pth'
         model = Net()
-        model.cpu()
+        model.cuda()
         model = nn.DataParallel(model)
         model.load_state_dict(torch.load(model_file))
         model.eval()
